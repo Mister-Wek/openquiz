@@ -1,3 +1,4 @@
+# License DuI 1.0
 import sys
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
