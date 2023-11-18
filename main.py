@@ -76,7 +76,7 @@ def start_test():
         ask()
 def show_correct(arg_ri):
     results.setText(arg_ri)
-def check_answer(): # в аргумент передаём текст верного ответа
+def check_answer():
     global all_ques_cur
     global all_right_cur
     text_ans = ""
@@ -98,7 +98,6 @@ def check_answer(): # в аргумент передаём текст верно
     print('Верных ответов:', all_right_cur)
     print('Рейтинг:', all_right_cur / all_ques_cur * 100, '%')
     print('----------------------')
-    #print(right)
 
 random.shuffle(ques)
 
