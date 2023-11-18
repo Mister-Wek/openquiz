@@ -15,4 +15,4 @@
 
 > Сделай мир лучше - *закрой браузер*
 
-'python' 'qt5' 'source'
+`python` `qt5` `source`
