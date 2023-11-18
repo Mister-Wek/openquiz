@@ -2,11 +2,13 @@ import sys
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 import random
+
 app = QApplication(sys.argv)
 w = QWidget()
 w.resize(450, 250)
 w.move(900, 400)
 w.setWindowTitle('Memory Card')
+
 enterb = QPushButton('Ответить')
 que = QLabel('Какой национальности не существует?')
 grp = QGroupBox('Варианты ответов')
@@ -24,8 +26,11 @@ right = '!'
 all_ques_cur = 0
 all_right_cur = 0
 
-ques = [{'вопрос':'чего?', 'ответы': ['того', 'не того', 'моего', 'четвёртый'], 'верный':'не того'}, {'вопрос':'когда?', 'ответы': ['вчера', 'завтра', 'ээээээээ', 'сегодня'], 'верный':'ээээээээ'}, {'вопрос':'кто?', 'ответы': ['я', 'ты', 'мы', 'он'], 'верный':'он'}]
+ques = [{'вопрос': 'чего?', 'ответы': ['того', 'не того', 'моего', 'четвёртый'], 'верный': 'не того'}, 
+        {'вопрос': 'когда?', 'ответы': ['вчера', 'завтра', 'ээээээээ', 'сегодня'], 'верный': 'ээээээээ'},
+        {'вопрос': 'кто?', 'ответы': ['я', 'ты', 'мы', 'он'], 'верный': 'он'}]
 cur_que = 0
+
 def show_result():
     grp.hide()
     enterb.setText('Следующий вопрос')
@@ -69,14 +74,17 @@ def ask():
     right = rand_que['верный']
     #print(right)
     show_question()
+    
 def start_test():
     if enterb.text() == 'Ответить':
         show_result()
     else:
         ask()
+        
 def show_correct(arg_ri):
     results.setText(arg_ri)
-def check_answer():
+    
+def check_answer(): 
     global all_ques_cur
     global all_right_cur
     text_ans = ""
@@ -98,6 +106,7 @@ def check_answer():
     print('Верных ответов:', all_right_cur)
     print('Рейтинг:', all_right_cur / all_ques_cur * 100, '%')
     print('----------------------')
+    #print(right)
 
 random.shuffle(ques)
 
@@ -111,7 +120,7 @@ layout3.addLayout(layout1)
 layout3.addLayout(layout2)
 grp.setLayout(layout3)
 layout.addWidget(que, alignment = Qt.AlignCenter)
-layout.addWidget(grp)
+layout.addWidget(grp) 
 layout.addWidget(results, alignment = Qt.AlignCenter)
 layout.addWidget(enterb, alignment = Qt.AlignCenter)
 w.setLayout(layout)
